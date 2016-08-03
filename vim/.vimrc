@@ -102,12 +102,26 @@ endif
 " compatible.
 packadd matchit
 
+set ai
+set sw=4
+set et
+set ts=4
+
 colo desert
-
-let Tlist_Auto_Open = 1
-let Tlist_Exit_OnlyWindow = 1
-
-set list listchars=tab:>\ ,trail:$
 
 noremap <expr> j (v:count == 0? 'gj':'j')
 noremap <expr> k (v:count == 0? 'gk':'k')
+
+" Python
+set list listchars=tab:>\ ,trail:$
+
+" Tlist
+let Tlist_Auto_Open = 0
+let Tlist_Exit_OnlyWindow = 1
+
+" NERDTree
+au vimenter * NERDTree
+au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+wincmd w
+au vimEnter * wincmd w
+
