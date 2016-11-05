@@ -102,6 +102,11 @@ endif
 " compatible.
 packadd matchit
 
+set mouse=
+" set fileencodings=utf-8
+" set fileencoding=utf-8
+" set encoding=utf-8
+
 set ai
 set sw=4
 set et
