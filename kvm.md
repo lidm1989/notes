@@ -1,5 +1,5 @@
 # **安装**
-    yum install libvirt-daemon-kvm virt-clone
+    yum install libvirt qemu-kvm virt-clone
 
 # xml
     <domain type='kvm'>
@@ -44,11 +44,37 @@
     virt-clone
 
 # 网络
+### nat
     virsh net-define <network.xml>
     virsh net-start default
     virsh net-list
 
     iptables -t nat -A POSTROUTING -o br0 -j MASQUERADE
+
+### bridge
+    # ifcfg-eth0
+    TYPE=Ethernet
+    BOOTPROTO=none
+    NAME=eth0
+    HWADDR=0C:C4:7A:96:A9:7C
+    DEVICE=eth0
+    ONBOOT=yes
+    BRIDGE=br0
+    NM_CONTROLLED=yes
+
+    # ifcfg-br0
+    DEVICE=br0
+    TYPE=Bridge
+    BOOTPROTO=none
+    ONBOOT=yes
+    IPADDR=10.10.254.102
+    PREFIX=24
+    GATEWAY=10.10.254.1
+    DNS1=10.10.254.1
+    DELAY=0
+    NM_CONTROLLED=no
+
+[network-bridge](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/s2-networkscripts-interfaces_network-bridge.html)
 
 # 创建
     qemu-img create -f qcow2 -o cluster_size=2M demo.qcow2 8G
@@ -58,3 +84,15 @@
     virsh shutdown <domain>
     virsh destroy <domain>
     virsh undefine <domain>
+
+# 快照
+    virsh snapshot-create-as <domain> <snapshot>
+    virsh snapshot-revert <domain> <snapshot>
+    virsh snapshot-list <domain>
+    virsh snapshot-delete <domain> <snapshot>
+
+# 硬盘
+    qemu-img create -f qcow2 -o cluster_size=2M demo-1.qcow2 8G
+    virsh attach-disk demo /var/lib/libvirt/images/demo-1.qcow2 vdb
+    virsh detach-disk demo vdb
+    

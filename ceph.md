@@ -64,10 +64,11 @@ ceph-deploy 工具必须以普通用户登录 Ceph 节点，且此用户拥有�
     osd pool default pgp num = 64
 
     osd mon report interval max = 5  # OSD 守护进程每 120 秒会向监视器报告其状态，不论是否有值得报告的事件。在 [osd] 段下设置 osd mon report interval max 可更改OSD报告间隔，或运行时更改。
+    
     mon osd report timeout = 30  # 如果一 OSD 在 mon osd report timeout 时间内没向监视器报告过，监视器就认为它 down 了。
-    mon osd down out interval = 5  # 在 OSD 停止响应多少秒后把它标记为 down 且 out
+    mon osd down out interval = 10  # 在 OSD 停止响应多少秒后把它标记为 down 且 out
 
-    mds reconnect timeout = 10
+    mds reconnect timeout = 5
 
 # 参数
     osd heartbeat interval = 6  # 各 OSD 每 6 秒会与其他 OSD 进行心跳检查，用 [osd] 下的 osd heartbeat interval 可更改此间隔、或运行时更改。
@@ -95,6 +96,21 @@ OS: Ceph Object Store
 MD: Ceph Metadata Server
 
 RADOS: a reliable, autonomous, distributed object store comprised of self-healing, self-managing, intelligent storage nodes.
+
+
+# 存储引擎
+* FileStore
+* BlueStore
+* KStore
+* MemStore
+
+操作工具：`ceph-objectstore-tool`
+
+# kv存储系统
+* Kinetic
+* LevelDB(default)
+* MemDB
+* RocksDB
 
 # 参考
 [1][CEPH官网](http://ceph.com/)

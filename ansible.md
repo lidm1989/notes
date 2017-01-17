@@ -1,3 +1,3 @@
 # **ansible**
 
-# ansible使用了jinjia２模版
+# ansible使用了jinjia2模版

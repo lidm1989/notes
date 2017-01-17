@@ -12,10 +12,16 @@
 # ps
     ps axf
     ps auxH
+
+# python
+    python -m SimpleHTTPServer
+    python -m json.tool
     
 # nc
     nc -l 80 -k -e /bin/hostname
     nc <host> <port>
+
+# brctl/bridge
     
 # nmap
     nmap -p <port> <host>

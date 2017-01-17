@@ -12,6 +12,10 @@ Redis安装包包含于shterm仓库中
     systemctl start redis
     systemctl enable redis
 
+# 命令
+### monitor
+    redis monitor 'foo' | grep
+
 # 配置
 Redis默认配置满足使用，不用额外配置。
 
