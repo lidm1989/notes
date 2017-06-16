@@ -14,6 +14,8 @@
 
 # git fetch origin
 
+# git cherry-pick
+
 # git log -p
 # git log --stat
 # git log --oneline
@@ -21,3 +23,16 @@
 # git log --before='2017-01-01'
 
 # git shortlog
+
+# git 迁移到 git
+
+条件：本地有一个clone的仓库，用gitlab搭建的Git server。
+
+1. 在gitlab上建立一个新的项目，设其地址为http://192.168.1.200/$user/$project.git
+
+1. 进入本地的$project目录，然后执行下面两个命令：
+    git remote remove origin
+
+    git remote add origin http://192.168.1.200/$user/$project.git
+
+    然后就可以用$user这个gitlab上的账号进行pull和push了。

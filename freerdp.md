@@ -25,3 +25,20 @@
 1. 继续尝试调整rdp会话的选项看是否能找到控制rdp传输文字的选项
 1. 调查提取win8，win10，win2012的密钥提取方法
 1. 调查rdp加密的其它方式，看能不能找到分析mstsc中rdp数据包的方法
+
+# Dockerfile
+    FROM centos:6
+    WORKDIR /root
+    COPY ./wireshark ./wireshark
+    #COPY ./FreeRDP ./FreeRDP
+    COPY ./FreeRDP-Wireshark ./FreeRDP-Wireshark
+    RUN \
+        # mirror
+        rm -rf /etc/yum.repos.d/* \
+        && curl -O http://mirrors.163.com/.help/CentOS6-Base-163.repo \
+        && curl -O http://mirrors.aliyun.com/repo/epel-6.repo \
+        && mv *.repo /etc/yum.repos.d/ \
+        # apps
+        && yum install git vim tigervnc-server openbox -y \
+        # compile
+        && yum install autoconf automake libtool bison flex gtk2-devel libpcap-devel openssl-devel gnutls-devel -y

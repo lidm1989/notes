@@ -74,7 +74,7 @@
     DELAY=0
     NM_CONTROLLED=no
 
-[network-bridge](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/s2-networkscripts-interfaces_network-bridge.html)
+[network-bridge]()
 
 # 创建
     qemu-img create -f qcow2 -o cluster_size=2M demo.qcow2 8G

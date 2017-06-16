@@ -55,6 +55,7 @@ ceph-deploy 工具必须以普通用户登录 Ceph 节点，且此用户拥有�
     ceph osd dump
     ceph mds dump
     ceph fs dump
+    ceph df
 
 # 配置
     osd pool default size = 2

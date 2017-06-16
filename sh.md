@@ -33,3 +33,6 @@
 # rpm包解压
     rpm2cpio XXX.rpm | cpio -div
 
+# ssh 
+    ssh tunnel
+

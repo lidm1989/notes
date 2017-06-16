@@ -35,6 +35,16 @@
     dd if=/dev/zero of=/var/shtermdata/share/here bs=8k   count=10240  oflag=direct    3.3MB/s
     dd if=/dev/zero of=/var/shtermdata/share/here bs=8k   count=10240  oflag=sync      3.0MB/s
 
+# filestore + mount
+    dd if=/dev/zero of=/var/shtermdata/share/here bs=64M  count=64    oflag=direct     52MB/s
+    dd if=/dev/zero of=/var/shtermdata/share/here bs=64M  count=64    oflag=sync       88.5MB/s
+
+    dd if=/dev/zero of=/var/shtermdata/share/here bs=1M   count=1024  oflag=direct     48.6MB/s
+    dd if=/dev/zero of=/var/shtermdata/share/here bs=1M   count=1024  oflag=sync       47.0MB/s
+
+    dd if=/dev/zero of=/var/shtermdata/share/here bs=8k   count=10240  oflag=direct    3.1MB/s
+    dd if=/dev/zero of=/var/shtermdata/share/here bs=8k   count=10240  oflag=sync      3.2MB/s
+
 # bluestore + fuse
     dd if=/dev/zero of=/var/shtermdata/share/here bs=64M  count=64     oflag=direct    18.8MB/s
     dd if=/dev/zero of=/var/shtermdata/share/here bs=64M  count=64     oflag=sync      20.1 MB/s
@@ -61,7 +71,7 @@
     dd if=/dev/zero of=/var/shtermdata/share/here bs=8k   count=10240  oflag=direct    1.6MB/s
     dd if=/dev/zero of=/var/shtermdata/share/here bs=8k   count=10240  oflag=sync      1.5MB/s
 
-# bluestore 部署时支持单个硬盘和单个分区，但重启后单个分区模式失败
+# bluestore 部署时支持单个硬盘和单个分区，但重启后单个分区模式失败，要手动挂载。
 
 # 修改配置
 /etc/shterm/shterm-text.conf
@@ -101,7 +111,8 @@
 # rados bench
 
 1. 安装iso，修改root密码为shterm。http://192.168.8.8/install/test_resource/shterm_distro/WEBAPP-DISTRO-M-x86_64-20161210-092841.iso
-1. 配置网络 ip地址分别为10.10.254.101 102 103
+1. 密码：4OO88O2393
+1. 配置网络 ip地址分别为10.10.254.101 102 103, gateway: 10.10.254.1, dns: 10.10.254.1
 1. 下载安装opc包, make install。http://192.168.8.8/install/test_resource/shterm_install/OPC/opc-3.0.9_20161230.tar
 1. 修改/etc/passwd root:x:0:0:root:/root:/bin/bash。reboot
 1. yum clean all; yum update shterm2*
@@ -115,6 +126,7 @@
 1. 权限视图中配置admin用于可以访问上面的资源
 1. 登录客户段192.168.4.41   4.42  4.43   4.44  4.45
 1. 进入目录cd  /var/testdir/stress-webapp-tui
-1. 手工执行ssh admin@10.10.16.254.104   选择一台设备登录登录  5台客户端上重复执行
+1. 手工执行ssh admin@10.10.254.104   选择一台设备登录登录  5台客户端上重复执行
 1. 使用 ./webapp_stress-tui2.py 进行压测
+
 
