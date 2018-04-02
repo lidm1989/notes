@@ -1,5 +1,9 @@
 # gdb
 
+# gdb --tui
+
+# gcore
+
 # file
 
 # show
@@ -30,6 +34,6 @@
     inferior <ID>
 
 # 多线程
-    info thread  # 查看当前进程的线程。
-    thread <ID>  # 切换调试的线程为指定ID的线程。
+    info threads  # 查看当前进程的线程
+    thread <ID>  # 切换调试的线程为指定ID的线程
     

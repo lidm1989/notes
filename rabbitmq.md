@@ -57,7 +57,7 @@ Headers exchanges can be looked upon as "direct exchanges on steroids". Because 
     rabbitmq-plugins list
 
 # rabbitmq-managent
-    rabbitmq-plugins enable rabbitmq_managenment
+    rabbitmq-plugins enable rabbitmq_management
     
 # rabbitmq_tracing
     rabbitmq-plugins enable rabbitmq_tracing
