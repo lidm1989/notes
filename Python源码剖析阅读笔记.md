@@ -6,7 +6,7 @@ On the other hand, the actual search for names is done dynamically, at run time 
 
 # 当进入一个新的名字空间或者说作用域时，就算是进入一个Code Block了
 
-#LGB与LEGB
+# LGB与LEGB
 
 # 当进入一个新的名字空间或者说作用域时，就算是进入一个Code Block了
 

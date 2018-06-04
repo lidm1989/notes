@@ -6,6 +6,7 @@
 用户态/内核态
 
 # 进程虚拟地址空间
+    http://www.cnblogs.com/clover-toeic/p/3754433.html
 
 # malloc 实现
 ### brk sbrk
@@ -17,6 +18,8 @@
 # reactor vs proactor
 
 # Futures and promises模式
+
+# 可重入 vs 线程安全
 
 # asynchronous programming
 CPS模型(直接回调)/async and await
@@ -68,10 +71,6 @@ python协程
 
 # python
 yield/yield from/async await
-
-# windows
-iocp
-fiber
 
 # 自旋锁 VS 内核锁
 

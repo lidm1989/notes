@@ -1,3 +1,8 @@
+# windows
+作业 > 进程 > 线程 > fiber > 用户模式调试
+
+# iocp
+
 # windows服务静默升级
 
 wmic path Win32_PerfFormattedData_PerfProc_Process get idprocess,Name,creatingprocessid,PercentProcessorTime,workingsetprivate
@@ -19,10 +24,17 @@ wmic path Win32_PerfFormattedData_PerfProc_Process get idprocess,Name,creatingpr
 
 # mfc中正则要额外安装atl server library，alt的规范与正常规范有些许出入
 
+# SEH 结构化异常处理
+局部展开 与 全局展开
+### SEH 与 c++ 异常处理的区别
+
+# 内核态/用户态
+
 # 进程虚拟地址空间
 
 # malloc 实现
 ### HeapAlloc VirtualAlloc
+默认情况下进程的堆是线程安全的
 
 # 在进行Windows的学习过程中，经常看到不同的内存分配方式，例如VirtualAlloc, HeapAlloc, malloc和new。它们之间存在一些差异。
 1. VirtualAlloc
@@ -57,9 +69,13 @@ C++语言的实现方式，在Visual C++ 中，通过调用HeapAlloc实现内存
 # vs生成uac可执行文件
 * 配置——》链接器——》清单文件 ——》UAC执行级别：requireAdministrator
 
+# __stdcall vs __fastcall vs __ccall
+
 # detours
 
 # dll 注入的几种方式
 1. AppInit_DLLs方式
 1. CreateRemoteThread
 1. SetWindowsHookEx
+
+# mingw vs mingw-w64
