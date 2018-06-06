@@ -1,5 +1,7 @@
 # C++98
 
+### typename vs class
+
 # C++03
 
 # C++11
