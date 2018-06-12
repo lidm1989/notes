@@ -14,6 +14,7 @@
 # kalloc vmalloc
 
 # actor模型 vs CSP模型
+共享内存（Shared memory）和消息传递（Messages passing）。
 
 # reactor vs proactor
 
